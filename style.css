@@ -423,11 +423,9 @@ nav ul li a{
  /* service--- */
 #service {
     position: relative;
-    width: 94%;
-    padding: 20px;
+    
     overflow: hidden;
-   margin-left: -2px;
-    margin-right: -10px;
+   
 }
 
 .service-pozadina {
@@ -557,9 +555,8 @@ hr {
 
 @media screen and (max-width: 770px) {
     #service {
-   width: 94%;
-   margin-left: -2px;
-    margin-right: -10px;
+   width: 100%;
+  
    overflow-x: hidden;
     }
     .service-box {
