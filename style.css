@@ -423,9 +423,11 @@ nav ul li a{
  /* service--- */
 #service {
     position: relative;
-    width: 100%;
+    width: 94%;
     padding: 20px;
     overflow: hidden;
+   margin-left: -2px;
+    margin-right: -10px;
 }
 
 .service-pozadina {
@@ -555,9 +557,10 @@ hr {
 
 @media screen and (max-width: 770px) {
     #service {
-        margin-left: -18px; /* Prilagodite vrednost prema potrebi */
-        margin-right: -10px; /* Prilagodite vrednost prema potrebi */
-        overflow-x: hidden;
+   width: 94%;
+   margin-left: -2px;
+    margin-right: -10px;
+   overflow-x: hidden;
     }
     .service-box {
     display: flex;
