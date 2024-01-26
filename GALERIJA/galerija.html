@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Pure CSS Lightbox using :target and :has</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Poppins:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://kit.fontawesome.com/0786c5feec.css" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
+</head>
+<body style="background-color:#1E1E1E;">
+    <a href="file:///C:/Users/YUZER/Desktop/nsmplast%20website/index.html" class="back-link">← Nazad na Početnu</a>
+  <div class="gallery">
+  <div class="img-w">
+    <img src="images/slika1.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/prozor.png" alt="" /></div>
+  <div class="img-w"><img src="images/prozor2.png" alt="" /></div>
+  <div class="img-w"><img src="images/prozor3.png" alt="" /></div>
+  <div class="img-w"><img src="images/banner.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/vrata.png" alt="" /></div>
+  <div class="img-w"><img src="images/0-02-05-41e77fcb78f0559bce2397a1389a166ea585e59bfe95ce8c1b63b65fadea50f1_69093e5fd4723134.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/0-02-05-76d143a59acb9acabfe83c260c710c2c8d843f6777da30e6fd68aa1f3f0a9921_d957b0524c360a1c.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/0-02-05-4288796c00413130fe3fc1f4e8e694977b2155065a9a038ae42e1c096b160123_a39088d5eff8e869.jpg" alt="" /></div>
+</div>
+    <div class="img-w">
+    <img src="images/0-02-05-3a8f87a13bf0b7b04bcf5a5b75bccc9ebf06ab9c2cf6db34dc5fce8b97b400d1_c007b61c4d3cfe6c.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/hd_f871faec61d43459097c79e3d137f2ec_659d933925a8c.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/slika3.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/slika4.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/slika5.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/slika6.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/slika7.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/slika8.jpg" alt="" /></div>
+  <div class="img-w"><img src="images/slika9.jpg" alt="" /></div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    $(function() {
+  $(".img-w").each(function() {
+    $(this).wrap("<div class='img-c'></div>")
+    let imgSrc = $(this).find("img").attr("src");
+     $(this).css('background-image', 'url(' + imgSrc + ')');
+  })
+            
+  
+  $(".img-c").click(function() {
+    let w = $(this).outerWidth()
+    let h = $(this).outerHeight()
+    let x = $(this).offset().left
+    let y = $(this).offset().top
+    
+    
+    $(".active").not($(this).prev(".img-c")).remove();
+    let copy = $(this).clone();
+    copy.insertAfter($(this)).height(h).width(w).delay(500).addClass("active")
+    $(".active").css('top', y - 8);
+    $(".active").css('left', x - 8);
+    
+      setTimeout(function() {
+    copy.addClass("positioned")
+  }, 0)
+    
+  }) 
+  
+  
+
+  
+})
+
+$(document).on("click", ".img-c.active", function() {
+  let copy = $(this)
+  copy.removeClass("positioned active").addClass("postactive")
+  setTimeout(function() {
+    copy.remove();
+  }, 500)
+})
+  </script>
+</body>
+</html>

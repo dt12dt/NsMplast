@@ -1,0 +1,139 @@
+.body {
+  padding: 10px 0;
+  position: relative;
+}
+.back-link {
+  color: #fff; /* Tamno siva boja */
+  font-family: 'Montserrat', sans-serif; 
+  text-decoration: none; 
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.back-link:hover {
+  color: #fff; /* Tamno siva boja kada hoverujete preko linka */
+}
+
+.gallery {
+  max-width: 2000px;
+  margin: auto;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img-c {
+  width: calc(33.33% - 10px);
+  height: 500px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  margin: 5px;
+}
+
+.img-w {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: transform ease-in-out 300ms;
+  overflow: hidden;
+  left: 0;
+}
+
+.img-w img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.img-c {
+  transition: width ease 400ms, height ease 350ms, left cubic-bezier(0.4, 0, 0.2, 1) 420ms, top cubic-bezier(0.4, 0, 0.2, 1) 420ms;
+}
+
+.img-c:hover .img-w {
+  transform: scale(1.08);
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 450ms;
+}
+
+.img-c.active {
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed;
+  z-index: 2;
+}
+
+
+.img-c.active .img-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+
+.img-c.active .img-w img {
+  object-fit: contain;
+  background-color: #1E1E1E;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.img-c.postactive {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.img-c.active.positioned {
+  left: 0 !important;
+  top: 0 !important;
+  transition-delay: 50ms;
+}
+
+.img-c.active:hover .img-w {
+  transform: scale(1) !important;
+  transition: none !important; /* Uklonite hover efekat kada je slika aktivna */
+}
+.img-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+@media screen and (max-width: 767px) {
+.gallery {
+    flex-direction: column; /* Postavite galeriju u vertikalni prikaz */
+  }
+
+  .img-c {
+    width: 100%;
+    height: auto;
+    margin: 5px 0; /* Prilagodite marginu prema potrebi */
+  }
+
+  .img-w {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 100%; /* Omogućava očuvanje odnosa širine i visine */
+  }
+
+  .img-w img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Prilagodite objekt-izgled prema potrebi */
+}      
+       .img-c.active {
+    display: none; /* Sakrij aktiviranu sliku na mobilnim uređajima */
+  }
+}
+  }
+  }
