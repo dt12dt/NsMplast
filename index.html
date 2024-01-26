@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" 
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Poppins:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
@@ -44,18 +44,20 @@
 </section>
 <div id="sideNav">
     <nav>
-    <ul>
-        <li><a href="#banner">POCETNA</a></li>
-        <li><a href="#feature">O NAMA</a></li>
-        <li><a href="#service">PONUDA</a></li>
-        <li><a href="#footer">KONTAKT</a></li>
-         <li><a href="galerija/galerija.html">GALERIJA</a></li>
-    </ul>
+        <ul>
+            <li><a href="#banner" onclick="closeMenu()">POCETNA</a></li>
+            <li><a href="#feature" onclick="closeMenu()">O NAMA</a></li>
+            <li><a href="#service" onclick="closeMenu()">PONUDA</a></li>
+            <li><a href="#footer" onclick="closeMenu()">KONTAKT</a></li>
+            <li><a href="galerija/galerija.html" onclick="closeMenu()">GALERIJA</a></li>
+        </ul>
     </nav>
 </div>
+
 <div id="menuBtn">
-    <img src="images/menu.png" id="menu" alt="menu">
+    <img src="images/menu.png" id="menu" alt="menu" onclick="toggleMenu()">
 </div>
+
     
 <!-- Features -->    
 <section id="feature">
@@ -190,6 +192,21 @@
     
 </section>
 <script>
+  function closeMenu() {
+        document.getElementById("sideNav").style.right = "-250px";
+        document.getElementById("menuBtn").innerHTML = '<img src="images/menu.png" id="menu" alt="menu">';
+    }
+
+    function toggleMenu() {
+        var sideNav = document.getElementById("sideNav");
+        if (sideNav.style.right === "-250px" || sideNav.style.right === "") {
+            sideNav.style.right = "0";
+            document.getElementById("menuBtn").innerHTML = '<img src="images/close.png" id="close" alt="close">';
+        } else {
+            sideNav.style.right = "-250px";
+            document.getElementById("menuBtn").innerHTML = '<img src="images/menu.png" id="menu" alt="menu">';
+        }
+    }
    
 let slideIndex = 0;
 
